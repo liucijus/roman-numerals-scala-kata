@@ -21,18 +21,19 @@ class RomanNumeralsConverterTest extends FlatSpec with Matchers {
 }
 
 object RomanNumeralsConverter {
+  val Rules = Seq(
+    10 -> "X",
+    5 -> "V"
+  )
   def fromArabic(number: Int): String = {
     var remainder = number
     var accu = ""
 
-    if (remainder >= 10) {
-      remainder -= 10
-      accu += "X"
-    }
-
-    if (remainder >= 5) {
-      remainder -= 5
-      accu += "V"
+    Rules.foreach { case (arabic, roman) =>
+      if (remainder >= arabic) {
+        remainder -= arabic
+        accu += roman
+      }
     }
 
     accu += "I" * remainder
