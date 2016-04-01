@@ -1,12 +1,17 @@
 import org.scalatest.{FlatSpec, Matchers}
 
 class RomanNumeralsConverterTest extends FlatSpec with Matchers {
-  "Roman numerals converter" should "convert 1 number to I" in {
-    RomanNumeralsConverter.fromArabic(1) shouldBe "I"
-  }
+  val specs = Seq(
+    1 -> "I",
+    2 -> "II"
+  )
 
-  it should "convert 2 to II" in {
-    RomanNumeralsConverter.fromArabic(2) shouldBe "II"
+  specs.foreach { case (arabic, roman) =>
+
+    "Roman numerals converter" should s"convert $arabic to $roman" in {
+      RomanNumeralsConverter.fromArabic(arabic) shouldBe roman
+    }
+
   }
 }
 
