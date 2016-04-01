@@ -52,10 +52,10 @@ object RomanNumeralsConverter {
     1 -> "I"
   )
 
-  def fromArabic(number: Int): String = fromArabic(number, Rules, "")
+  def fromArabic(number: Int): String = fromArabic(number, Rules)
 
   @tailrec
-  private def fromArabic(number: Int, rules: Seq[(Int, String)], accu: String): String = rules match {
+  private def fromArabic(number: Int, rules: Seq[(Int, String)], accu: String = ""): String = rules match {
     case Nil => accu
     case (arabic, roman) :: tail => fromArabic(number % arabic, tail, accu + roman * (number / arabic))
   }
