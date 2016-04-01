@@ -8,7 +8,8 @@ class RomanNumeralsConverterTest extends FlatSpec with Matchers {
     5 -> "V",
     6 -> "VI",
     10 -> "X",
-    16 -> "XVI"
+    16 -> "XVI",
+    20 -> "XX"
   )
 
   specs.foreach { case (arabic, roman) =>
@@ -30,7 +31,7 @@ object RomanNumeralsConverter {
     var accu = ""
 
     Rules.foreach { case (arabic, roman) =>
-      if (remainder >= arabic) {
+      while (remainder >= arabic) {
         remainder -= arabic
         accu += roman
       }
