@@ -5,7 +5,8 @@ class RomanNumeralsConverterTest extends FlatSpec with Matchers {
     1 -> "I",
     2 -> "II",
     3 -> "III",
-    5 -> "V"
+    5 -> "V",
+    6 -> "VI"
   )
 
   specs.foreach { case (arabic, roman) =>
@@ -19,9 +20,15 @@ class RomanNumeralsConverterTest extends FlatSpec with Matchers {
 
 object RomanNumeralsConverter {
   def fromArabic(number: Int): String = {
-    if (number == 5)
-      "V"
-    else
-      "I" * number
+    var remainder = number
+    var accu = ""
+    if (number >= 5) {
+      remainder -= 5
+      accu += "V"
+    }
+
+    accu += "I" * remainder
+
+    accu
   }
 }
