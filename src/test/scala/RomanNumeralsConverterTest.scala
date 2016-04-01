@@ -17,12 +17,5 @@ class RomanNumeralsConverterTest extends FlatSpec with Matchers {
 }
 
 object RomanNumeralsConverter {
-  def fromArabic(number: Int): String = {
-    if (number == 1)
-      "I"
-    else if (number == 2)
-      "II"
-    else
-      "III"
-  }
+  def fromArabic(number: Int): String = "I" * number
 }
