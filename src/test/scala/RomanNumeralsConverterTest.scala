@@ -9,7 +9,11 @@ class RomanNumeralsConverterTest extends FlatSpec with Matchers {
     6 -> "VI",
     10 -> "X",
     16 -> "XVI",
-    20 -> "XX"
+    20 -> "XX",
+    50 -> "L",
+    100 -> "C",
+    500 -> "D",
+    1000 -> "M"
   )
 
   specs.foreach { case (arabic, roman) =>
@@ -23,6 +27,10 @@ class RomanNumeralsConverterTest extends FlatSpec with Matchers {
 
 object RomanNumeralsConverter {
   val Rules = Seq(
+    1000 -> "M",
+    500 -> "D",
+    100 -> "C",
+    50 -> "L",
     10 -> "X",
     5 -> "V",
     1 -> "I"
