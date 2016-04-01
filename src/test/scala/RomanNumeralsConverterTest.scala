@@ -5,6 +5,7 @@ class RomanNumeralsConverterTest extends FlatSpec with Matchers {
     1 -> "I",
     2 -> "II",
     3 -> "III",
+    4 -> "IV",
     5 -> "V",
     6 -> "VI",
     10 -> "X",
@@ -33,6 +34,7 @@ object RomanNumeralsConverter {
     50 -> "L",
     10 -> "X",
     5 -> "V",
+    4 -> "IV",
     1 -> "I"
   )
 
