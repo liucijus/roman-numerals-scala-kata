@@ -50,16 +50,10 @@ object RomanNumeralsConverter {
     1 -> "I"
   )
 
-  def fromArabic(number: Int): String = {
-    var remainder = number
+  def fromArabic(number: Int): String = fromArabic(number, Rules)
 
-    Rules.map { case (arabic, roman) =>
-      var accu = ""
-      while (remainder >= arabic) {
-        remainder -= arabic
-        accu += roman
-      }
-      accu
-    }.mkString
+  private def fromArabic(number: Int, rules: Seq[(Int, String)]): String = rules match {
+    case Nil => ""
+    case (arabic, roman) :: tail => roman * (number / arabic) + fromArabic(number % arabic, tail)
   }
 }
