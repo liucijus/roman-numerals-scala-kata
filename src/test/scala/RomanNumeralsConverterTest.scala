@@ -19,7 +19,9 @@ class RomanNumeralsConverterTest extends FlatSpec with Matchers {
     400 -> "CD",
     500 -> "D",
     900 -> "DM",
-    1000 -> "M"
+    1000 -> "M",
+    0 -> "",
+    2546 -> "MMDXLVI"
   )
 
   specs.foreach { case (arabic, roman) =>
