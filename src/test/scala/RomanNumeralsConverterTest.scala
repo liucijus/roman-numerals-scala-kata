@@ -24,21 +24,20 @@ class RomanNumeralsConverterTest extends FlatSpec with Matchers {
 object RomanNumeralsConverter {
   val Rules = Seq(
     10 -> "X",
-    5 -> "V"
+    5 -> "V",
+    1 -> "I"
   )
+
   def fromArabic(number: Int): String = {
     var remainder = number
-    var accu = ""
 
-    Rules.foreach { case (arabic, roman) =>
+    Rules.map { case (arabic, roman) =>
+      var accu = ""
       while (remainder >= arabic) {
         remainder -= arabic
         accu += roman
       }
-    }
-
-    accu += "I" * remainder
-
-    accu
+      accu
+    }.mkString
   }
 }
